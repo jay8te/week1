@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>For You 💙</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
@@ -10,12 +11,13 @@
       text-align: center;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 400px;
-      margin: 80px auto;
+      width: 90%;
+      max-width: 450px;
+      margin: 50px auto;
       background: #ffffff;
       padding: 25px;
       border-radius: 20px;
@@ -26,6 +28,7 @@
 
     h1 {
       color: #5aa9e6;
+      font-size: 24px;
       margin-bottom: 10px;
     }
 
@@ -38,26 +41,31 @@
     p {
       color: #444;
       line-height: 1.6;
-      font-size: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #5aa9e6;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     .heart {
       position: fixed;
       bottom: -10px;
-      font-size: 20px;
+      font-size: 18px;
       color: #5aa9e6;
       animation: floatUp 6s linear infinite;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-800px) scale(1.5);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-700px) scale(1.4); opacity: 0; }
     }
   </style>
 </head>
@@ -65,26 +73,28 @@
 <body>
 
 <!-- Music -->
-<audio autoplay loop>
-  <source src="FTS.mp3" type="audio/mpeg">
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
   <h1>For You 💙</h1>
 
-  <img src="legolandd.jpg" alt="us">
+  <img src="yourphoto.jpg" alt="us">
 
   <p>
-    Dear baby girl, 💙 <br><br>
+     Dear baby girl, 💙 <br><br>
     I wanted to make something different for "week 1" and I dont want the website to disappear. <br><br>
     So i made this myself :D. <br><br>
     I hope you have a nicce day at work today , Please tell me stuff okay baby.
     Thank you for making my nights brighter and giving us time to unwind together.
     I really appreciate you baby, I love you so much. Muahhh
-
-                                                                    From,
-                                                                    Remyy
+    From,
+    Remyy
   </p>
+
+  <!-- Mobile-friendly play button -->
+  <button onclick="document.getElementById('bg-music').play()">Play Music 🎵</button>
 </div>
 
 <!-- Floating Hearts Script -->
@@ -93,18 +103,12 @@ function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerHTML = "💙";
-
   heart.style.left = Math.random() * window.innerWidth + "px";
-  heart.style.fontSize = (10 + Math.random() * 20) + "px";
-
+  heart.style.fontSize = (12 + Math.random() * 18) + "px";
   document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+  setTimeout(() => { heart.remove(); }, 6000);
 }
-
-setInterval(createHeart, 300);
+setInterval(createHeart, 400);
 </script>
 
 </body>
