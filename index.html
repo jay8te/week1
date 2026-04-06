@@ -8,18 +8,18 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #cceeff; /* soft baby blue */
+      background-color: #cceeff; /* baby blue background */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
     }
 
     .container {
       width: 90%;
       max-width: 400px;
-      background: #ffffff;
+      background: rgba(255,255,255,0.85); /* slightly transparent */
       border-radius: 25px;
       padding: 20px;
       text-align: center;
@@ -73,10 +73,11 @@
     Dear baby girl, 💙 <br><br>
     I wanted to make something different for "week 1" and I dont want the website to disappear. <br><br>
     So i made this myself :D. <br><br>
-    I hope you have a nicce day at work today , Please tell me stuff okay baby.
+    I hope you have a nice day at work today , Please tell me stuff okay baby.
     Thank you for making my nights brighter and giving us time to unwind together.
+    I really like hearing stuff about your day with every small detail :)
     I really appreciate you baby, I love you so much. Muahhh <br><br>
-                                                                                                 From,
+                                                                                                 From, <br><br>
                                                                                                  Remyy
   </p>
 </div>
@@ -85,23 +86,20 @@
 function createHeart() {
   const heart = document.createElement('div');
   heart.className = 'heart';
-  heart.innerHTML = Math.random() > 0.5 ? '💙' : '🤍'; // blue or white
-
+  heart.innerHTML = Math.random() > 0.5 ? '💙' : '🤍';
   heart.style.left = Math.random() * window.innerWidth + 'px';
   heart.style.fontSize = (14 + Math.random() * 20) + 'px';
   document.body.appendChild(heart);
-
   setTimeout(() => heart.remove(), 5000);
 }
 
-// Faster for mobile feel
+// Make floating hearts more lively
 setInterval(createHeart, 200);
 
-// Attempt to autoplay music on mobile
+// Autoplay music with mobile fallback
 document.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('bg-music');
   audio.play().catch(() => {
-    // If blocked, user tap will start music
     document.body.addEventListener('click', () => audio.play(), {once:true});
   });
 });
