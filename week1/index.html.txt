@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You 💙</title>
+
+  <style>
+    body {
+      background-color: #d6ecff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #5aa9e6;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    p {
+      color: #444;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      color: #5aa9e6;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+  <source src="FTS.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>For You 💙</h1>
+
+  <img src="legolandd.jpg" alt="us">
+
+  <p>
+    Hey baby ,
+    I made this little page for you to do smt special for "week 1"💙 <br><br>
+    I thought it would be kinda cute , I hope you have a good day at work today.<br><br>
+    You mean so much to me baby , thank you for making my nights brighter  <br><br>
+    Just a small reminder that you mean a lot to me and I love you so much muahhh.
+  </p>
+</div>
+
+<!-- Floating Hearts Script -->
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💙";
+
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.fontSize = (10 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
